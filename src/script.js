@@ -20,7 +20,7 @@ window.addEventListener("resize", () => {
 
 const cube = new THREE.Mesh(
   new THREE.BoxGeometry(4, 4, 4),
-  new THREE.MeshBasicMaterial({ color: 0xff0000 })
+  new THREE.MeshBasicMaterial({ color: 0x983555 })
 );
 scene.add(cube);
 const camera = new THREE.PerspectiveCamera(
