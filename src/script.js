@@ -17,6 +17,10 @@ window.addEventListener("resize", () => {
   renderer.setSize(sizes.width, sizes.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
+const axsesHelper = new THREE.AxesHelper(8);
+scene.add(axsesHelper);
+
+const group = new THREE.Group();
 
 const cube1 = new THREE.Mesh(
   new THREE.BoxGeometry(4, 4, 4),
@@ -37,32 +41,27 @@ const cube4 = new THREE.Mesh(
   new THREE.BoxGeometry(4, 4, 4),
   new THREE.MeshBasicMaterial({ color: 0x983595 })
 );
-cube4.position.y = 8
-
+cube4.position.y = 8;
 
 const cube5 = new THREE.Mesh(
   new THREE.BoxGeometry(4, 4, 4),
   new THREE.MeshBasicMaterial({ color: 0x987595 })
 );
-cube5.position.y = -8
-
-// cube.rotateX =  4;
-// cube.rotateY =  4;
-// cube.rotateZ =  4;
-// cube1.rotation.x =  Math.PI * 0.25;
-// cube1.rotation.z =  Math.PI * 0.25;
+cube5.position.y = -8;
+group.add(cube1, cube2, cube3, cube4, cube5);
+group.rotation.x = Math.PI * 0.25;
+// group.rotation.z =  Math.PI * 0.25;
 // cube.scale.set(2, 2, 2);
-scene.add(cube1 ,cube2, cube3, cube4 ,cube5);
+scene.add(group);
 const camera = new THREE.PerspectiveCamera(
   75,
   sizes.width / sizes.height,
   0.1,
   100
 );
-const axsesHelper = new THREE.AxesHelper(8);
-scene.add(axsesHelper);
-// camera.position.z = 20;
-// camera.position.y = 10;
+
+camera.position.z = 20;
+camera.position.y = 10;
 camera.position.x = 20;
 scene.add(camera);
 
